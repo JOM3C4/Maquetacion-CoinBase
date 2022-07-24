@@ -1,0 +1,107 @@
+$color-main: #0075FF;
+$color-footer:#f4f8fe;
+@mixin btn-base{
+    padding: 0.25rem 1.5rem;
+    border-radius: 0.25rem;
+}
+@mixin btn-sm-modify {
+    font-size: 0.75rem;
+    padding: 0.1rem 1rem;
+}
+.btn-main{
+    @include btn-base();
+    background-color:$color-main;
+    color: white;
+    border: none;
+    border: solid 1px $color-main;
+    &:hover{
+        background-color: white;
+        color:$color-main;
+    }
+    &-s{
+        @extend .btn-main;
+        @include  btn-sm-modify();
+    }
+}
+
+.btn-sec{
+    @include  btn-sm-modify();
+    color: #000000;
+    background-color: transparent;
+    border: none;
+    &:hover{
+        color: #888;
+    }
+    &-s{
+        @extend .btn-sec;
+        @include  btn-sm-modify();
+    }
+}
+
+.main-menu{
+    margin-bottom: 0;
+    li{
+        font-size: 0.75; 
+        list-style: none;
+        display: inline;
+        padding-left: 15px;
+        padding-right: 15px;
+        font-weight: bold;
+        a{
+            color: #000;
+            text-decoration: none;
+            &:hover{
+                text-decoration: underline;
+                color: $color-main;
+            }
+        }
+    }
+}
+.icon-sm{
+    i{
+        font-size: 1.25rem;
+        padding: 0.2rem 0.35rem;
+        color: $color-main;
+        border-radius: 50%;
+        box-shadow: 0 0 10px #000000;
+    }
+}
+.benefit{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    .icon{
+        color: $color-main;
+        font-size: 6rem;
+    }
+    .description{
+        .title{
+            font-size: 2rem;
+
+        }
+        .text{
+            color: #888;
+            font-weight: 600;
+
+        }
+    }
+    .cta{
+        margin-top: 3rem;
+        color: $color-main;
+        font-weight: 600;
+    }
+
+}
+.icon-desc{
+    text-align: center;
+    i{
+        color: $color-main;
+        padding: 0;
+        font-size: 7rem;
+    }
+    .title{
+        margin-top: -2rem;
+        font-size: 1.5rem;
+        font-weight: 600;
+    }
+}

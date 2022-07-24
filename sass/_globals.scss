@@ -1,0 +1,197 @@
+@use "components" as comp;
+@mixin section-display {
+    width: 100%;
+    padding: 5rem;
+    align-items: center;
+    margin: 0px auto;
+    max-width: 992px;
+}
+html{
+    min-width: 100%;
+}
+body{
+    padding: 0px;
+    margin: 0px;
+}
+
+.nav{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    height: 4rem;
+    border-bottom: solid 1px #ddd;
+    align-items: center;
+}
+.logo a img{
+    max-width: 7rem;
+    object-fit: cover;   
+}
+.sec-home{
+    display: flex;
+    align-items: center;
+    @include section-display();
+    .home-cta{
+       flex: 1;
+        .cta-text{
+            color: comp.$color-main;
+        }
+        .home-title{
+            width: 20rem;
+            font-size: 3rem;
+        }
+        .home-description{
+            width: 300px;
+            .lead-magnet{
+                .input-text{
+                    max-width: 200px;
+                }
+            }
+        }
+    }
+}
+.sec-features{
+    @include section-display();
+    .intro{
+        text-align: center;
+        h3{
+            font-size: 1.8rem;
+        }
+        p{
+            font-size: 0.8rem;
+            color: #888;
+        }
+    }
+    .features{
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        justify-content: center;
+        .text{
+            padding: 2rem 0;
+            max-width: 40%;
+            .feature{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                .description{
+                    margin-left: 1rem;
+                    text-align: left;
+                    .description-title{
+                        font-size: 1.15rem;
+                    }
+                    .descripcion-text{
+                        font-size: 1rem;
+                    }
+                }
+            }
+        }
+        .image{
+            img{
+                max-width: 20rem;
+            }
+        }
+    }
+}
+.sec-benefits{
+    border-top: 1px solid #ddd;
+    
+    .intro{
+        @extend .sec-features, .intro;
+        text-align: center;
+       padding: 2rem;
+    }
+    .benefit-cards{
+        width: 100%;
+        padding: 0 2rem 2rem 2rem;
+        .benefit{
+            i{
+                font-size: 4.5rem;
+            }
+        }
+        .cta{
+            margin-top: 0px;
+        }
+    }
+}
+.sec-kpis{
+    width: 100%;
+    background-color: comp.$color-main;
+    color: white;
+    padding: 4rem;
+    .kpi{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .number{
+            font-size: 3.5rem;
+            font-weight: 600;
+            color: #ffff;
+        }
+    }
+}
+.sec-onboarding{
+    margin-bottom: 45px;
+    .intro{
+        @extend .sec-features, .intro;
+        text-align: center;
+        padding: 2.5rem;
+    }
+    .steps{
+        padding: 0 7rem;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        justify-content: center;
+        .icon-desc h4{
+            margin-top: 0.4rem;
+        }
+        .step-separator{
+            flex: 1;
+            border-top: 1.5px solid #cccc;
+            margin: 0 1.5rem;
+        }
+    }
+}
+.sec-footer-cta{
+    background-color: comp.$color-footer;
+    padding: 5rem;
+    background-image: url(../assets/img/bg.png);
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: contain;
+    .footer-cta{
+        width: 50%;
+        .cta-title{
+            font-size:2rem;
+        }
+        .cta-description{
+            font-size: 1.1rem;
+        }
+    }
+}
+@media(max-width:768px){
+    .sec-onboarding .steps{
+      flex-direction: column;
+        .intro {
+            font-size: 2rem;
+        }
+    }
+
+    .sec-features .features{
+        flex-direction: column;
+    }
+    .sec-features .features .text{
+        max-width: 100%;
+    }
+    .sec-footer-cta{
+        background-image: none;
+        .footer-cta{
+            width: 100%;
+            text-align: center;
+        }
+    }
+    .sec-kpis{
+        width: 100%;
+    }
+}
+  
